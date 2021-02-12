@@ -21,5 +21,28 @@
         </div>
             <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
+
+    <h3>Event details</h3>
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">EventName</th>
+          <th scope="col">Date</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Descrption</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i<events.length; i++) {%>
+          <tr class="table">
+            <td> <%= events[i].Name %></td>
+            <td> <%= events[i].Eventdate %></td>
+            <td> <%= events[i].Eventduration %></td>
+            <td> <%= events[i].Eventdescrption %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
 </div>
 <%- include("./partials/footer") %>

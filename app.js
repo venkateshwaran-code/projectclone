@@ -182,8 +182,16 @@ app.get("/logout", authenticateUser, (req, res) => {
   req.session.user = null;
   res.redirect("/login");
 });
+
+// Fecth Event Data from database
+app.get("/geteventdata",(req,res)=>{
+  Event.find({},(err,docs)=>{
+    if(err)throw err;
+    else  res.render('event',{events:docs});
+  })
+});
 // server config
-const PORT = 3000;
+const PORT = process.env.Port||3000;
 app.listen(PORT, () => {
   console.log(`Server started listening on port: ${PORT}`);
 });
